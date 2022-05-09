@@ -1,0 +1,16 @@
+from PIL import Image
+
+im = Image.open('th.jpg') //文件名
+width = im.size[0]
+height = im.size[1]
+im = im.convert('RGB')
+array = []
+for x in range(width):
+    for y in range(height):
+        r, g, b = im.getpixel((x,y))
+        rgb = (r, g, b)
+        array.append(rgb)
+
+fp=open('F:/text.txt','a+')
+print(array,file=fp)
+fp.close()
